@@ -8,7 +8,9 @@ feed.
 Installation
 ------------
 
-TODO
+.. code-block:: bash
+
+    $ pip install scrapy-multifeedexporter
 
 Configuration
 -------------
@@ -38,8 +40,8 @@ placeholder in the output file/URI name. The following calls to
 
 .. code:: bash
 
-    scrapy crawl -o "spider_name_%(item_name)s.csv" -t csv spider_name
-    scrapy crawl -o "ftp://foo:bar@example.com/spider_name_%(item_name)s.csv" -t csv spider_name
+    $ scrapy crawl -o "spider_name_%(item_name)s.csv" -t csv spider_name
+    $ scrapy crawl -o "ftp://foo:bar@example.com/spider_name_%(item_name)s.csv" -t csv spider_name
 
 If you omit the placeholder, all items will be placed in one file.
 
