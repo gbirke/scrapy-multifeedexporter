@@ -10,7 +10,7 @@ from twisted.internet import defer
 from scrapy import log
 from scrapy.contrib.feedexport import FeedExporter, SpiderSlot
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 class MultiFeedExporter(FeedExporter):
 
@@ -24,8 +24,9 @@ class MultiFeedExporter(FeedExporter):
     def get_bot_items(cls, bot_name):
         """ Get item names from items module of the given bot module name
         """
-        item_module = importlib.import_module(bot_name + ".items")
-        item_names = [name for name,obj in inspect.getmembers(item_module, inspect.isclass)]
+        module_name = bot_name + ".items"
+        item_module = importlib.import_module(module_name)
+        item_names = [name for name,obj in inspect.getmembers(item_module, inspect.isclass) if obj.__module__.startswith(module_name)]
         return item_names
 
     def open_spider(self, spider):
