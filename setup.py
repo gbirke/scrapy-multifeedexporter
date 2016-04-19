@@ -14,6 +14,7 @@ README = open(os.path.join(here, 'README.rst')).read()
 setup(
     name='scrapy-multifeedexporter',
     version=version,
+    py_modules=['multifeedexporter'],
     license=open(os.path.join(here,'LICENSE')).readline().strip(),
     description='Export scraped items of different types to multiple feeds.',
     long_description=README,
